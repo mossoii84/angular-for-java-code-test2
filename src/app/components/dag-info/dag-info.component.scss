@@ -1,0 +1,92 @@
+@import "src/styles/vars";
+
+:host {
+  height: 100%;
+  display: block;
+
+  .content {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  #pipeline-info {
+    padding: 1.25rem 0;
+    background-color: #D8E4F4;
+
+    #pipeline-dag {
+      font-size: 1.25rem;
+
+      span {
+        font-weight: 700;
+      }
+    }
+
+    #pipeline-control-buttons {
+      margin-top: 1.25rem;
+    }
+
+    .pipeline-dag-btn {
+      color: #FFFFFF;
+      padding: 0.625rem 1.25rem;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 7rem;
+      margin-right: 0.625rem;
+      font-size: 1em;
+
+      span {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        i {
+          margin-right: 0.313rem;
+        }
+      }
+    }
+
+    .pipeline-dag-btn:hover {
+      opacity: 0.8;
+    }
+
+    .btn-blue {
+      background-color: #6D7BE0;
+    }
+
+    .btn-green {
+      background-color: #77CA58;
+    }
+
+    .btn-red {
+      background-color: #EB7980;
+    }
+  }
+
+  #pipeline-working-zone {
+    height: 100%;
+
+    #pipeline-working-panel {
+      position: fixed;
+      background-color: #D8E4F4;
+      top: 25%;
+      left: 1%;
+      padding: 0 $default-offset;
+      border-radius: $default-offset;
+      font-size: 2rem;
+
+      div {
+        margin: 0.625rem 0;
+        padding: 0.188rem 0.313rem;
+        cursor: pointer;
+      }
+
+      div:hover {
+        background-color: #DAE1F9;
+        border-radius: 0.188rem;
+      }
+    }
+  }
+}

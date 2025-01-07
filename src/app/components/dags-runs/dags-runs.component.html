@@ -1,0 +1,99 @@
+<div class="content">
+  <div class="actions-button">
+    <button id="btn-create-new-dag" mat-flat-button>
+      <span>
+        <i class="bi bi-plus-circle-fill"></i>
+        Создать DAG
+      </span>
+    </button>
+    <button id="btn-import-dag" mat-flat-button>
+      <span>
+        <i class="bi bi-box-arrow-in-left"></i>
+        Импорт DAG
+      </span>
+    </button>
+  </div>
+
+  <div class="dags-filter">
+    <div class="dags-filter-header">DAGs</div>
+    <div class="dags-filter-filters">
+      <div>
+        <mat-button-toggle-group
+          [value]="filtersConfig?.selectedDagsStatus"
+          (change)="onChangeDagsStatusFilter($event, 'selectedDagsStatus')"
+        >
+          <mat-button-toggle
+            *ngFor="let status of dagsStatuses"
+            [value]="status.value"
+          >
+            {{ status.label }}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="form-div">
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="text"
+            placeholder="Поиск по тегам"
+            [value]="filtersConfig ? filtersConfig.tagSearchString : ''"
+            (input)="onChangeDagsStatusFilterTag($event, 'tagSearchString')"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="form-div">
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="text"
+            placeholder="Поиск"
+            [value]="filtersConfig ? filtersConfig.nameSearchString : ''"
+            (input)="onChangeDagsStatusFilter($event, 'nameSearchString')"
+          />
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-header">
+      <div class="cell dag-name-cell">
+        <mat-icon [matTooltip]="'Тут будет какой-то текст тултипа'">
+          info_outline
+        </mat-icon>
+        DAG
+      </div>
+      <div class="cell">Создатель</div>
+      <div class="cell">
+        Запуски<mat-icon [matTooltip]="'Тут будет какой-то текст тултипа'"
+          >info_outline</mat-icon
+        >
+      </div>
+      <div class="cell">Расписание</div>
+      <div class="cell">
+        Последний запуск<mat-icon
+          [matTooltip]="'Тут будет какой-то текст тултипа'"
+          >info_outline</mat-icon
+        >
+      </div>
+      <div class="cell">Действия</div>
+    </div>
+  </div>
+
+  <div class="dags-list">
+    <div
+      class="spinner"
+      *ngIf="!dagsRunsLoadingStatus?.isLoaded; else dagsContent"
+    >
+      <mat-spinner color="primary"></mat-spinner>
+    </div>
+    <ng-template #dagsContent
+      ><app-dag-run-item
+        *ngFor="let dag of dagsRuns"
+        [dag]="dag"
+        (changeDagStatus)="changeDagStatus.emit($event)"
+      ></app-dag-run-item
+    ></ng-template>
+  </div>
+</div>

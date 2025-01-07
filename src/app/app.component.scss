@@ -1,0 +1,21 @@
+::ng-deep * {
+  padding: 0;
+  margin: 0;
+}
+
+::ng-deep body {
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  background-color: #F1F5F9;
+  overflow: hidden;
+}
+
+router-outlet {
+  height: auto;
+  width: 100%;
+}
+
+button {
+  font-family: Montserrat, sans-serif !important;
+}

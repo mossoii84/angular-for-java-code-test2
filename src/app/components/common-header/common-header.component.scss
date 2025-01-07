@@ -1,0 +1,40 @@
+@import "src/styles/vars";
+
+:host {
+  color: $white-font-color;
+
+  .content {
+    width: 100%;
+    height: $common-header-height;
+    background-color: $main-color;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .duc-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 $default-offset-half;
+  }
+
+  .main-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    &-cell {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      padding: 0 $default-offset-half;
+      justify-content: space-around;
+
+      .mat-icon {
+        margin: 0 $default-offset-quarter;
+      }
+    }
+  }
+}

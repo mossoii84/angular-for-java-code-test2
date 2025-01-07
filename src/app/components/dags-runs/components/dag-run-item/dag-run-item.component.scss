@@ -1,0 +1,113 @@
+@import "src/styles/vars";
+
+:host {
+  .content {
+    background-color: #e5ebf5;
+    border-radius: $default-offset-half;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0;
+    margin-bottom: $default-offset;
+
+    &-row {
+      align-content: space-evenly;
+      display: grid;
+      grid-template-columns: 1.2fr repeat(5, 1fr);
+      padding: 0 $default-offset;
+      height: 100%;
+    }
+
+    .cell {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .runs-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 $default-offset-quarter;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+    }
+
+    .total {
+      border: 1px solid #8692E8;
+    }
+
+    .success {
+      border: 1px solid #91D874;
+    }
+
+    .failed {
+      border: 1px solid #EA6262;
+    }
+
+    .schedule, .date {
+      color: #74777c;
+    }
+
+    .schedule {
+      background-color: #cfd5dd;
+      border-radius: 0.5rem;
+      padding: $default-offset-half $default-offset-medium;
+    }
+
+    .date {
+      text-decoration: underline;
+    }
+
+    .dag-row-buttons-control {
+      background-color: #F1F5F9;
+      border: 1px solid #D9D9D9;
+      border-radius: 0;
+      padding: 0.188rem;
+      text-align: center;
+      width: 1.875rem;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .dag-buttons {
+      justify-content: right;
+      padding-right: 2rem;
+    }
+
+    .dag-row-buttons-control:hover {
+      background-color: #eceff1;
+    }
+
+    .btn-save {
+      color: #8692E8;
+    }
+
+    .btn-start {
+      color: #91D874;
+    }
+
+    .btn-delete {
+      color: #EA6262;
+    }
+
+    #dag-tag-container {
+      margin-top: 0.118rem;
+      max-width: 7rem;
+      height: auto;
+      .dag-tag {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.8rem;
+        background-color: #D1DFF2;
+        border-radius: 0.313rem;
+        border: 1px solid #C7D5E6;
+        display: inline-flex;
+        margin-left: 0.2rem;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@import "src/styles/vars";
+
+:host {
+  .content {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+    height: calc(100% - #{$common-header-height} - #{$default-offset});
+
+    .actions-button {
+      margin: $default-offset-large 0;
+
+      ::ng-deep .mdc-button {
+        margin: 0 $default-offset-half;
+      }
+
+      #btn-create-new-dag {
+        background-color: $main-primary-color;
+        color: #FFFFFF;
+        font-weight: 500;
+        letter-spacing: normal;
+      }
+
+      #btn-create-new-dag:hover {
+        background-color: $second-primary-color;
+        color: #FFFFFF;
+      }
+
+      #btn-import-dag {
+        background-color: $grey-button-color;
+        color: #000000;
+        font-weight: 500;
+        letter-spacing: normal;
+      }
+
+      span {
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+
+        i {
+          font-size: 1.5rem;
+          margin-right: 0.3rem;
+        }
+      }
+    }
+
+    .table-header {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(5, 1fr);
+      margin-top: $default-offset;
+
+      .cell {
+        align-items: center;
+        display: flex;
+        font-weight: 700;
+        justify-content: center;
+
+        &:first-child {
+          margin-right: 4.1rem;
+        }
+
+        .mat-icon {
+          margin: 0 $default-offset-half;
+          cursor: pointer;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .dags-filter {
+    display: flex;
+    background-color: #d7e3f3;
+    border-radius: $default-offset;
+    flex-direction: column;
+    padding: $default-offset;
+
+    &-header {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    &-filters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: $default-offset 0;
+      gap: $default-offset-large;
+
+      .form-div {
+        height: $default-offset-large;
+      }
+
+      .mat-mdc-form-field {
+        width: 100%;
+      }
+
+      ::ng-deep .mdc-text-field--outlined {
+        background-color: white;
+      }
+
+      .mat-button-toggle-group {
+        width: 100%;
+
+        .mat-button-toggle {
+          width: inherit;
+        }
+      }
+    }
+  }
+
+  .dags-list {
+    margin-top: $default-offset;
+    overflow: hidden scroll;
+    height: 100%;
+  }
+
+  .spinner {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+}

@@ -1,0 +1,30 @@
+<div class="content" (click)="redirectToInfoPage()">
+  <div class="content-row" (contextmenu)="$event.preventDefault()">
+    <div class="cell">
+      <mat-slide-toggle (click)="$event.stopPropagation()" color="primary" [hideIcon]="true" [checked]="!!dag?.status" (change)="onChangeDagStatus($event)"></mat-slide-toggle>
+      <div id="dag-name">
+        <b>{{dag?.name}}</b>
+        <div id="dag-tag-container" *ngIf="dag.tags && dag.tags.length > 0">
+          <div class="dag-tag" *ngFor="let tag of dag?.tags">
+            {{tag}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cell">{{dag?.user}}</div>
+    <div class="cell">
+      <div class="runs-circle total">{{(dag.successRunsCount + dag.failedRunsCount) || 0}}</div>
+      <div class="runs-circle success">{{dag?.successRunsCount}}</div>
+      <div class="runs-circle failed">{{dag?.failedRunsCount}}</div>
+    </div>
+    <div class="cell">
+      <span class="schedule">{{dag?.schedule}}</span>
+    </div>
+    <div class="cell date">{{dag?.lastRunDate | date: 'yyyy-MM-dd, HH:mm:ss' }}</div>
+    <div class="cell dag-buttons">
+      <button *ngIf="dag?.status" class="dag-row-buttons-control btn-save"><i class="bi bi-save"></i></button>
+      <button class="dag-row-buttons-control btn-start"><i class="bi bi-caret-right-fill"></i></button>
+      <button class="dag-row-buttons-control btn-delete"><i class="bi bi-trash3"></i></button>
+    </div>
+  </div>
+</div>
