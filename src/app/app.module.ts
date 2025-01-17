@@ -23,7 +23,7 @@ import {DagsRunsEffects} from "./store/effects/dags-runs.effects";
     AppRoutingModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([DagsRunsEffects]),
-    StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
     CommonHeaderModule,
     MatIconModule,
   ],
