@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { Subject, takeUntil } from 'rxjs';
 import { CrudServiceService } from 'src/app/services/crud-service.service';
 
 
@@ -12,14 +13,15 @@ import { CrudServiceService } from 'src/app/services/crud-service.service';
 export class FormJopComponent implements OnInit{
   store = inject(Store);
   crudServiceService = inject(CrudServiceService);
-
+  private destroy$ = new Subject<void>();
 
   ngOnInit(): void {
 
-    this.crudServiceService.getJobs().subscribe(
-      (data)=> console.log("data---", data)
-    );
-    
+
+    this.crudServiceService.getJobs()
+       .pipe(takeUntil(this.destroy$))
+       .subscribe(data => console.log('data---', data));
+
   }
 
 
@@ -48,5 +50,8 @@ export class FormJopComponent implements OnInit{
     tegs: new FormControl('', [Validators.required]),
   });
 
-
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
