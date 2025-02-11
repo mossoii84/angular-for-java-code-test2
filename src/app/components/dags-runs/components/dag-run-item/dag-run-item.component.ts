@@ -21,7 +21,7 @@ export class DagRunItemComponent {
     this.changeDagStatus.emit({dagId: this.dag.id, dagStatus: +event.checked})
   }
 
-  public redirectToInfoPage(): void {
-    this.router.navigate(['/dag-info/' + this.dag.id])
-  }
+  // public redirectToInfoPage(): void {
+  //   this.router.navigate(['/dag-info/' + this.dag.id])
+  // }
 }

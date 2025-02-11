@@ -13,6 +13,7 @@ import {StoreModule} from "@ngrx/store";
 import {appReducers} from "./store/reducers/app.reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {DagsRunsEffects} from "./store/effects/dags-runs.effects";
+import { CrudServiceService } from './services/crud-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,9 +26,9 @@ import {DagsRunsEffects} from "./store/effects/dags-runs.effects";
     EffectsModule.forRoot([DagsRunsEffects]),
     StoreDevtoolsModule.instrument({connectInZone: true}),
     CommonHeaderModule,
-    MatIconModule,
+    MatIconModule
   ],
-  providers: [DagsRunsService],
+  providers: [DagsRunsService, CrudServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,6 +12,9 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {DagsRunsService} from "../../services/dags-runs.service";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { FormJopModule } from "../form-jop/form-job.module";
+import { CrudServiceService } from "src/app/services/crud-service.service";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [DagsRunsComponent, DagsRunsContainer, DagRunItemComponent],
@@ -28,8 +31,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     NgForOf,
     MatProgressSpinnerModule,
     NgIf,
-  ],
-  providers: [DagsRunsService],
+    FormJopModule,HttpClientModule
+    ],
+  providers: [DagsRunsService, CrudServiceService],
   bootstrap: [],
 })
 export class DagsRunsModule {}

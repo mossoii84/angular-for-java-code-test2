@@ -1,6 +1,9 @@
+
+<app-form-jop #FormJopComponent></app-form-jop>
+
 <div class="content">
   <div class="actions-button">
-    <button id="btn-create-new-dag" mat-flat-button>
+    <button id="btn-create-new-dag" mat-flat-button (click)="toggleJobForm()">
       <span>
         <i class="bi bi-plus-circle-fill"></i>
         Создать DAG
